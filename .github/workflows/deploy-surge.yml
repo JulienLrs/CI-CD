@@ -40,6 +40,6 @@ jobs:
             - name: Deploy to Surge
               run: 
                 npm install -g surge
-                surge ./dist react-surge-jaylrs.surge.sh
+                surge ./dist --domain ${{ secret.SURGE_DOMAIN }} --token ${{ secret.SURGE_DOMAIN }}
                 
 
