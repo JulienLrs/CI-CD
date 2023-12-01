@@ -21,23 +21,24 @@ jobs:
         environment: production
         runs-on: ubuntu-latest
         defaults: 
-            shell: bash
-            working-directory: ./
+            run:
+                shell: bash
+                working-directory: ./
         steps:
             # Récupération du code du projet
             - name: Fetch code
-            uses: actions/checkout@v4
+              uses: actions/checkout@v4
 
             # Installation des dépendances
             - name: Install dependencies
-            run: npm install
+              run: npm install
 
             # Build du projet (transpilation ts -> js, scss -> css)
             - name: Build
-            run: npm run build
+              run: npm run build
 
             - name: Deploy to Surge
-            run: 
+              run: 
                 npm install -g surge
                 surge ./dist react-surge-jaylrs.surge.sh
 
